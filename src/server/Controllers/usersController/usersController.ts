@@ -1,7 +1,11 @@
 import type { NextFunction, Request, Response } from "express";
-import CustomError from "../../CustomError/CustomError.js";
-import User from "../../database/models/User.js";
-import type { Credentials, RegisterData, UserTokenPayload } from "../types.js";
+import CustomError from "../../../CustomError/CustomError.js";
+import User from "../../../database/models/User.js";
+import type {
+  Credentials,
+  RegisterData,
+  UserTokenPayload,
+} from "../../types.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
