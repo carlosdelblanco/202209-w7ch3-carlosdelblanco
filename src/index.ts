@@ -1,21 +1,12 @@
-import * as dotenv from "dotenv";
-import express from "express";
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-dotenv.config();
+/* eslint-disable no-implicit-coercion */
+import "./loadEnvironment.js";
+import databaseConnection from "./database/databaseConnection.js";
+import serverStart from "./server/serverStart.js";
 
 const port = process.env.PORT;
+const mongoUrl = process.env.MONGO_URL;
 
-const app = express();
-
-app.use(express.json());
-
-const { log } = console;
-
-app.use((req, res) => {
-  res.status(200).json({ message: "Hola mundo" });
-});
-
-app.listen(port, () => {
-  log(`Server starting: http://localhost:${port}`);
-});
+(async () => {
+  await databaseConnection(mongoUrl);
+  await serverStart(+port);
+})();
