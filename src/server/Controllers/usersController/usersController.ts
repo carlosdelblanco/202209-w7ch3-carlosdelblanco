@@ -1,4 +1,6 @@
+import bcrypt from "bcryptjs";
 import type { NextFunction, Request, Response } from "express";
+import jwt from "jsonwebtoken";
 import CustomError from "../../../CustomError/CustomError.js";
 import User from "../../../database/models/User.js";
 import type {
@@ -6,8 +8,6 @@ import type {
   RegisterData,
   UserTokenPayload,
 } from "../../types.js";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 
 export const loginUser = async (
   req: Request,
@@ -49,7 +49,6 @@ export const registerUser = async (
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const newUser = await User.create({
       username,
       password: hashedPassword,

@@ -1,11 +1,11 @@
-import "../loadEnvironment.js";
-import "../database/databaseConnection.js";
 import express from "express";
 import morgan from "morgan";
-import usersRouter from "./Routes/usersRouter.js";
-import { generalError, unknownEndpoint } from "./middlewares/errors.js";
+import "../database/databaseConnection.js";
+import "../loadEnvironment.js";
 import auth from "./middlewares/auth.js";
+import { generalError, unknownEndpoint } from "./middlewares/errors.js";
 import itemsRouter from "./Routes/itemsRouter.js";
+import usersRouter from "./Routes/usersRouter.js";
 
 const app = express();
 
