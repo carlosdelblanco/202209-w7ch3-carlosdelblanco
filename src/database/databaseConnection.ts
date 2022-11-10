@@ -5,7 +5,7 @@ const debug = debugCreator("items:database");
 
 const databaseConnection = async (mongoUrl: string) =>
   mongoose
-    .connect(mongoUrl, { dbName: "items" })
+    .connect(mongoUrl, { dbName: "w7ch3" })
     .then(() => {
       debug("Connected correctly to the database.");
     })
