@@ -37,7 +37,7 @@ export const loginUser = async (
 
   const token = jwt.sign(tokenPayload, process.env.SECRET_KEY);
 
-  res.status(200).json({ accesToken: token });
+  res.status(200).json({ token });
 };
 
 export const registerUser = async (

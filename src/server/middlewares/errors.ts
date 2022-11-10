@@ -16,7 +16,7 @@ export const generalError = (
   const publicMessage =
     error.publicMessage || "Failed to connect to the server.";
 
-  res.status(statusCode).json({ message: publicMessage });
+  res.status(statusCode).json({ error: publicMessage });
 };
 
 export const unknownEndpoint = (req: Request, res: Response) => {
